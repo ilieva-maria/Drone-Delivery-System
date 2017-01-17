@@ -1,9 +1,10 @@
 package com.hackbulgaria;
 
-import com.hackbulgaria.managers.WareHouseManager;
+import com.hackbulgaria.managers.RequestManager;
 import com.hackbulgaria.models.Request;
 
 public interface ClientInterface {
-	public void sendRequest(Request request, WareHouseManager warehouse);
+	public void makeRequest(Request request, RequestManager requestManager);
+	public Request parseInput(String userRequest);
 	
 }

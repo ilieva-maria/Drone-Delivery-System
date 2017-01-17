@@ -1,5 +1,11 @@
 package com.hackbulgaria.managers;
 
-public class DroneManager {
+public class DroneManager implements DroneManagerInterface{
+
+	@Override
+	public void checkDrones(ProductResults results) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

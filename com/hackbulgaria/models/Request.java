@@ -1,5 +1,11 @@
 package com.hackbulgaria.models;
 
-public class Request {
+import java.sql.Time;
+import java.util.HashMap;
 
+public class Request {
+	 int id;
+	 Time time;
+	 Coordinates coordinates;
+	 HashMap<Product, Integer> products;
 }

@@ -1,5 +1,13 @@
 package com.hackbulgaria.managers;
 
-public class WareHouseManager {
+import com.hackbulgaria.models.Request;
+
+public class WareHouseManager implements WareHouseManagerInterface{
+
+	@Override
+	public ProductResults checkProducts(Request request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
