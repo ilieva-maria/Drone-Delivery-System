@@ -35,7 +35,7 @@ public class RequestManager implements RequestManagerInterface {
         }
 
         //Update batteries
-        int distance = Coordinates.distance(productResults.getWareHouse(),
+        double distance = Coordinates.distance(productResults.getWareHouse(),
                 request.getCoordinates());
         droneManager.makeDelivery(assignedDrones, distance, request.getTime());
 

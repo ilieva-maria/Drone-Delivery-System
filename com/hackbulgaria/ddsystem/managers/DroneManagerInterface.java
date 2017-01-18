@@ -16,5 +16,5 @@ public interface DroneManagerInterface {
     void updateDrones(Time time);
 
     //Update batteries for drones that'll make a delivery
-    void makeDelivery(List<Drone> assignedDrones, int distance, Time time);
+    void makeDelivery(List<Drone> assignedDrones, double distance, Time time);
 }

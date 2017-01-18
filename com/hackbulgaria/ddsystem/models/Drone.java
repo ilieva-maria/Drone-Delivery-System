@@ -39,13 +39,13 @@ public class Drone {
         return warehouseID;
     }
 
-    public boolean canTravel(int distance) {
+    public boolean canTravel(double distance) {
         //Assume our drones use 1
         //Battery Unit per 1 Distance unit
         return battery > distance;
     }
 
-    public void makeDelivery(int distance, Time time) {
+    public void makeDelivery(double distance, Time time) {
         battery -= distance;
         lastUpdated = time;
     }

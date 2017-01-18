@@ -2,15 +2,22 @@ package com.hackbulgaria.ddsystem.models;
 
 import java.sql.Time;
 import java.util.HashMap;
+import java.util.Map;
+
+import com.hackbulgaria.database.Products;
 
 public class Request {
 	private int id;
 	private Time time;
 	private Coordinates coordinates;
-	private HashMap<Product, Integer> products;
-
+	private Map<Products, Integer> products = new HashMap<>();
+	
+	public Request() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Request(int id, Time time, Coordinates coordinates,
-				   HashMap<Product, Integer> products) {
+				   HashMap<Products, Integer> products) {
 		this.id = id;
 		this.time = time;
 		this.coordinates = coordinates;
@@ -41,11 +48,11 @@ public class Request {
 		this.coordinates = coordinates;
 	}
 
-	public HashMap<Product, Integer> getProducts() {
+	public Map<Products, Integer> getProducts() {
 		return products;
 	}
 
-	public void setProducts(HashMap<Product, Integer> products) {
+	public void setProducts(Map<Products, Integer> products) {
 		this.products = products;
 	}
 }

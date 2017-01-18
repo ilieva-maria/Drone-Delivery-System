@@ -1,17 +1,39 @@
 package com.hackbulgaria.ddsystem.managers;
 
+import com.hackbulgaria.database.Drones;
 import com.hackbulgaria.ddsystem.models.Coordinates;
 import com.hackbulgaria.ddsystem.models.Drone;
 import com.hackbulgaria.ddsystem.results.DroneResults;
 import com.hackbulgaria.ddsystem.results.ProductResults;
 
 import java.sql.Time;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DroneManager implements DroneManagerInterface {
+import org.hibernate.Session;
 
-    private List<Drone> drones;
+public class DroneManager implements DroneManagerInterface {
+	
+	private Session session;
+	private List<Drone> drones;
+	
+	public DroneManager(Session session) {
+		this.session = session;
+	}
+
+	public void showDrones() {
+		List<?> drones = session.createQuery("FROM Drones").getResultList();
+		for (Iterator<?> iterator = drones.iterator(); iterator.hasNext();) {
+			Drones drone = (Drones) iterator.next();
+			System.out.print("ID: " + drone.getId());
+			System.out.print("  BU: " + drone.getBatteryUnits());
+			System.out.print("  WU: " + drone.getWeightUnits());
+			System.out.println("  ChargingRate: " + drone.getChargingRate());
+		}
+	}
+
+    
 
     public DroneManager(List<Drone> drones) {
         this.drones = drones;
@@ -25,7 +47,7 @@ public class DroneManager implements DroneManagerInterface {
         }
 
         //Calculate the distance of the delivery
-        int distance = Coordinates.distance(dest, pResults.getWareHouse());
+        double distance = Coordinates.distance(dest, pResults.getWareHouse());
 
         //Filter the available drones
         List<Drone> available =
@@ -48,7 +70,7 @@ public class DroneManager implements DroneManagerInterface {
         drones.forEach(drone -> drone.updateBattery(time));
     }
 
-    public void makeDelivery(List<Drone> drones, int distance, Time time){
+    public void makeDelivery(List<Drone> drones, double distance, Time time){
         if (drones == null)
             return;
 

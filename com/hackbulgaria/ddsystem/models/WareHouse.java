@@ -5,7 +5,23 @@ public class WareHouse {
 	private int id;
 
     public WareHouse(int id,Coordinates coordinates) {
-        this.coordinates = coordinates;
-        this.id = id;
+        this.setCoordinates(coordinates);
+        this.setId(id);
     }
+
+	public Coordinates getCoordinates() {
+		return coordinates;
+	}
+
+	public void setCoordinates(Coordinates coordinates) {
+		this.coordinates = coordinates;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

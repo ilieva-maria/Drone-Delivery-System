@@ -1,0 +1,56 @@
+use droneDelivery;
+CREATE TABLE Drones(
+id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+batteryUnits INT NOT NULL,
+weightUnits INT NOT NULL,
+chargingRate DOUBLE precision (3,1)
+);
+
+CREATE TABLE Warehouse(
+id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(40) NOT NULL,
+FOREIGN KEY (id) REFERENCES Coordinates(id)
+);
+
+
+CREATE TABLE Coordinates(
+id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+lat DOUBLE NOT NULL,
+lng DOUBLE NOT NULL
+);
+
+CREATE TABLE Products(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(40) NOT NULL,
+weightUnits DOUBLE NOT NULL
+);
+
+CREATE TABLE StockItem(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+quantity INT NOT NULL,
+FOREIGN KEY (id) REFERENCES Products(id)
+);
+
+INSERT INTO Coordinates (lat, lng) VALUES 
+(42, 42);
+
+
+INSERT INTO Products (name, weightUnits) VALUES 
+('laptop' , 2.5), 
+('pc', 3), 
+('keyboard', 0.5), 
+('mouse', 0.2);
+
+INSERT INTO StockItem (quantity) VALUES 
+(500), 
+(300), 
+(350), 
+(100);
+
+insert into Warehouse (name) value ('DroneStation');
+
+select * from Warehouse w right join Coordinates c on w.id = c.id;
+
+select * from Products p right join StockItem s on p.id = s.id;
+
+select * from StockItem;
