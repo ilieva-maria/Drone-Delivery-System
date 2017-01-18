@@ -1,7 +1,7 @@
-package com.hackbulgaria;
+package com.hackbulgaria.ddsystem;
 
-import com.hackbulgaria.managers.RequestManager;
-import com.hackbulgaria.models.Request;
+import com.hackbulgaria.ddsystem.models.Request;
+import com.hackbulgaria.ddsystem.managers.RequestManager;
 
 public class ClientInterfaceImplementation implements ClientInterface{
 

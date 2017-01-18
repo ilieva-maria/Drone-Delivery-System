@@ -1,6 +1,7 @@
-package com.hackbulgaria.managers;
+package com.hackbulgaria.ddsystem.managers;
 
-import com.hackbulgaria.models.Request;
+import com.hackbulgaria.ddsystem.models.Request;
+import com.hackbulgaria.ddsystem.results.ProductResults;
 
 public class WareHouseManager implements WareHouseManagerInterface{
 
