@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hackbulgaria.ddsystem.models.Coordinates" table="Coordinates">
+		<meta attribute="class-description">
+			This class contains the projection detail.
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="lat" column=" lat " type="double" />
+		<property name="lng" column=" lng " type="double" />
+		<one-to-one name="warehouse" class="com.hackbulgaria.ddsystem.models.Warehouse"
+			cascade="save-update">
+		</one-to-one>
+
+
+	</class>
+</hibernate-mapping>

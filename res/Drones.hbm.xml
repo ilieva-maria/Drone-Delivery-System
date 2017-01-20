@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hackbulgaria.ddsystem.models.Drone" table="Drones">
+		<meta attribute="class-description">
+			This class contains the projection detail.
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		
+		<property name="batteryUnits" column="batteryUnits" type="int" />
+		<property name="weightUnits" column="weightUnits" type="int" />
+		<property name="chargingRate" column="chargingRate" type="double" />
+		<property name="lastUpdated" column = "lastUpdated" type="time"/>
+	</class>
+</hibernate-mapping>
