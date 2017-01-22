@@ -5,39 +5,36 @@ import com.hackbulgaria.ddsystem.models.Coordinates;
 import com.hackbulgaria.ddsystem.models.Drone;
 import com.hackbulgaria.ddsystem.results.DroneResults;
 import com.hackbulgaria.ddsystem.results.ProductResults;
+import org.hibernate.Session;
 
 import java.sql.Time;
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.hibernate.Session;
-
 public class DroneManager implements DroneManagerInterface {
-	
-	private Session session;
-	private List<Drone> drones;
-	
-	public DroneManager(Session session) {
-		this.session = session;
-	}
+    private static String TABLE_NAME = "Drones";
+    private List<Drone> drones;
 
-	public void showDrones() {
-		List<?> drones = session.createQuery("FROM Drones").getResultList();
-		for (Iterator<?> iterator = drones.iterator(); iterator.hasNext();) {
-			Drone drone = (Drone) iterator.next();
-			System.out.print("ID: " + drone.getId());
-			System.out.print("  BU: " + drone.getBatteryUnits());
-			System.out.print("  WU: " + drone.getWeightUnits());
-			System.out.println("  ChargingRate: " + drone.getChargingRate());
-		}
-	}
-
-    
-
-    public DroneManager(List<Drone> drones) {
-        this.drones = drones;
+    // Factory style constructor
+    public static DroneManager fromList(List<Drone> drones) {
+        DroneManager droneManager = new DroneManager();
+        droneManager.drones = drones;
+        return droneManager;
     }
+
+    @SuppressWarnings("unchecked")
+    public static DroneManager fromDatabase(Session session) {
+        DroneManager droneManager = new DroneManager();
+        droneManager.drones = session
+                .createQuery("FROM " + TABLE_NAME)
+                .getResultList();
+        return droneManager;
+    }
+
+    public void showDrones() {
+        drones.forEach(System.out::println);
+    }
+
 
     @Override
     public DroneResults checkDrones(ProductResults pResults, Coordinates dest) {
@@ -70,7 +67,7 @@ public class DroneManager implements DroneManagerInterface {
         drones.forEach(drone -> drone.updateBattery(time));
     }
 
-    public void makeDelivery(List<Drone> drones, double distance, Time time){
+    public void makeDelivery(List<Drone> drones, double distance, Time time) {
         if (drones == null)
             return;
 

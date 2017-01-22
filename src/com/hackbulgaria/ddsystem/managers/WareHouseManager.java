@@ -40,7 +40,7 @@ public class WareHouseManager implements WareHouseManagerInterface {
     public ProductResults checkProducts(Request request) {
         ProductResults results = new ProductResults();
 
-        if (request.getProducts().size() == 0){
+        if (request.getProducts().size() == 0) {
             results.setAvailable(false);
             return results;
         }

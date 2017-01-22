@@ -22,7 +22,7 @@ public class Main {
         for (int i = 0; i < 2; i++)
             drones.add(new Drone(2000, 20, 5, new Time(d.getTime())));
 
-        DroneManagerInterface dm = new DroneManager(drones);
+        DroneManagerInterface dm = DroneManager.fromList(drones);
         WareHouseManagerInterface wm = new WareHouseManager(wh);
 
         //wm.showProducts();

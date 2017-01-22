@@ -66,6 +66,7 @@ public class Drone {
         return batteryUnits > distance;
     }
 
+    //ToDo Figure out how these will work with Hibernate
     public void makeDelivery(double distance, Time time) {
         batteryUnits -= distance;
         lastUpdated = time;
