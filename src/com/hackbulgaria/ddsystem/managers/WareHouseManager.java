@@ -1,5 +1,6 @@
 package com.hackbulgaria.ddsystem.managers;
 
+import com.hackbulgaria.database.Products;
 import com.hackbulgaria.ddsystem.models.Product;
 import com.hackbulgaria.ddsystem.models.Request;
 import com.hackbulgaria.ddsystem.models.StockItem;
@@ -7,11 +8,24 @@ import com.hackbulgaria.ddsystem.models.Warehouse;
 import com.hackbulgaria.ddsystem.results.ProductResults;
 import org.hibernate.Session;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class WareHouseManager implements WareHouseManagerInterface {
     private Session session;
     private Warehouse warehouse;
+    
+
+	public void showProductsFromTable() {
+		List<?> products = session.createQuery("FROM Products").getResultList();
+		for (Iterator<?> iterator = products.iterator(); iterator.hasNext();) {
+			Products product = (Products) iterator.next();
+			System.out.print("ID: " + product.getId());
+			System.out.print("  Name: " + product.getName());
+			System.out.println();
+			
+		}
+	}
 
     public WareHouseManager(Session session) {
         this.session = session;

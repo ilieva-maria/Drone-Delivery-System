@@ -1,14 +1,19 @@
 package com.hackbulgaria.ddsystem.models;
 
 import java.sql.Time;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.hackbulgaria.database.Products;
 
 public class Request {
     private int id;
     private Time time;
     private Coordinates coordinates;
     private List<StockItem> products;
-
+    private Map<Products, Integer> productsMap = new HashMap<>();
+    
     public Request() {
         // TODO Auto-generated constructor stub
     }
@@ -52,4 +57,12 @@ public class Request {
     public void setProducts(List<StockItem> products) {
         this.products = products;
     }
+
+	public Map<Products, Integer> getProductsMap() {
+		return productsMap;
+	}
+
+	public void setProductsMap(Map<Products, Integer> productsMap) {
+		this.productsMap = productsMap;
+	}
 }
