@@ -1,9 +1,17 @@
 use droneDelivery;
-CREATE TABLE Drones(
+
+CREATE TABLE Coordinates(
+id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+lat DOUBLE NOT NULL,
+lng DOUBLE NOT NULL
+);
+
+CREATE TABLE Drone(
 id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 batteryUnits INT NOT NULL,
 weightUnits INT NOT NULL,
-chargingRate DOUBLE precision (3,1)
+chargingRate FLOAT,
+readyToDeliver TIME
 );
 
 CREATE TABLE Warehouse(
@@ -12,30 +20,23 @@ name VARCHAR(40) NOT NULL,
 FOREIGN KEY (id) REFERENCES Coordinates(id)
 );
 
-
-CREATE TABLE Coordinates(
-id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-lat DOUBLE NOT NULL,
-lng DOUBLE NOT NULL
-);
-
-CREATE TABLE Products(
+CREATE TABLE Product(
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(40) NOT NULL,
-weightUnits DOUBLE NOT NULL
+weightUnits FLOAT NOT NULL
 );
 
 CREATE TABLE StockItem(
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 quantity INT NOT NULL,
-FOREIGN KEY (id) REFERENCES Products(id)
+FOREIGN KEY (id) REFERENCES Product(id)
 );
 
 INSERT INTO Coordinates (lat, lng) VALUES 
 (42, 42);
 
 
-INSERT INTO Products (name, weightUnits) VALUES 
+INSERT INTO Product (name, weightUnits) VALUES
 ('laptop' , 2.5), 
 ('pc', 3), 
 ('keyboard', 0.5), 
@@ -47,10 +48,12 @@ INSERT INTO StockItem (quantity) VALUES
 (350), 
 (100);
 
+INSERT INTO Drone (batteryUnits,weightUnits,chargingRate) values(2000,500,5);
+
 insert into Warehouse (name) value ('DroneStation');
 
 select * from Warehouse w right join Coordinates c on w.id = c.id;
 
-select * from Products p right join StockItem s on p.id = s.id;
+select * from Product p right join StockItem s on p.id = s.id;
 
 select * from StockItem;

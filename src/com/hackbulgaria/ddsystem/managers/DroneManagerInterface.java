@@ -10,11 +10,8 @@ import java.util.List;
 
 public interface DroneManagerInterface {
     //Check if drones can do a delivery
-    DroneResults checkDrones(ProductResults results, Coordinates dest);
+    DroneResults checkDrones(ProductResults results, Coordinates dest, long time);
 
-    //Update batteries for a given time
-    void updateDrones(Time time);
-
-    //Update batteries for drones that'll make a delivery
-    void makeDelivery(List<Drone> assignedDrones, double distance, Time time);
+    //Update readyToDeliver times for drones that'll make a delivery
+    void makeDelivery(List<Drone> assignedDrones, double distance, long time);
 }

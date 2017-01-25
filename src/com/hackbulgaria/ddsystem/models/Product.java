@@ -4,6 +4,7 @@ public class Product {
     private int id;
     private String name;
     private float weight;
+    private StockItem item;
 
     public Product() {
     }
@@ -41,5 +42,13 @@ public class Product {
     @Override
     public String toString() {
         return "id:" + id + ", name:" + name + ", weight:" + weight + " ";
+    }
+
+    public StockItem getItem() {
+        return item;
+    }
+
+    public void setItem(StockItem item) {
+        this.item = item;
     }
 }

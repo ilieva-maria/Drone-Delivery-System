@@ -1,18 +1,17 @@
 package com.hackbulgaria.ddsystem;
 
+import com.hackbulgaria.ddsystem.managers.RequestManager;
+import com.hackbulgaria.ddsystem.models.Coordinates;
+import com.hackbulgaria.ddsystem.models.Product;
+import com.hackbulgaria.ddsystem.models.Request;
+import com.hackbulgaria.ddsystem.models.StockItem;
+import org.hibernate.Session;
+
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.hibernate.Session;
-
-import com.hackbulgaria.database.Products;
-import com.hackbulgaria.ddsystem.managers.RequestManager;
-import com.hackbulgaria.ddsystem.models.Coordinates;
-import com.hackbulgaria.ddsystem.models.Request;
-import com.hackbulgaria.ddsystem.models.StockItem;
 
 public class ClientInterfaceImplementation implements ClientInterface {
     private Session session;
@@ -33,12 +32,12 @@ public class ClientInterfaceImplementation implements ClientInterface {
 
     @Override
     public Request parseInput(String userRequest) {
-        String[] query = userRequest.split("\\s+");
+      /*  String[] query = userRequest.split("\\s+");
         Request request = new Request();
         request.setId(Integer.parseInt(query[1]));
 
         String timestamp = query[2];
-        if (timestamp.equals("now")){
+        if (timestamp.equals("now")) {
             request.setTime(new Time(System.currentTimeMillis()));
         } else {
             long t = Long.valueOf(timestamp);
@@ -61,46 +60,48 @@ public class ClientInterfaceImplementation implements ClientInterface {
         }
 
         List<StockItem> items = new ArrayList<>();
-        for(int i=4; i<query.length;i++){
+        for (int i = 4; i < query.length; i++) {
             StockItem stockItem = new StockItem(Integer.valueOf(query[i]), Integer.valueOf(query[++i]), null);
             items.add(stockItem);
         }
-        request.setProducts(items);
-        return request;
+        request.setProducts(items); */
+        return null;
     }
-    
+
     @Override
     public Request parseInputWithoutTime(String userRequest) {
-		String[] query = userRequest.split("\\s+");
-		Request request = new Request();
-		request.setId(Integer.parseInt(query[1]));
-		
-		String[] location = query[4].split(",");
-		double lat = Double.parseDouble(location[0].trim());
-		double lng = Double.parseDouble(location[1].trim());
-		
-	
-		//check coordinates
-		if(lat > 1000 || lng > 1000){
-			throw new IllegalArgumentException("Coodrdinates are outside the city ");
-			
-		}else if(lat < 0 || lng < 0){
-			throw new IllegalArgumentException("Coodrdinates < 0 ");
-			
-		}else{
-			request.setCoordinates(new Coordinates(lat, lng));
-		}
-		
-		Map<Products, Integer> products = new HashMap<>();
-		
-		
-		for (int i = 5; i < query.length; i+=2) {
-			int productID = Integer.parseInt(query[i]); 
-			Products product = (Products) session.get(Products.class, productID);
-			int quantity=Integer.parseInt(query[i+1]);			
-			products.put(product, quantity);
-		}
-		request.setProductsMap(products);
-		return request;
-	}
+        String[] query = userRequest.split("\\s+");
+        Request request = new Request();
+        request.setId(Integer.parseInt(query[1]));
+
+        request.setTime(Long.parseLong(query[2]));
+
+        String[] location = query[3].split(",");
+        double lat = Double.parseDouble(location[0].trim());
+        double lng = Double.parseDouble(location[1].trim());
+
+
+        //check coordinates
+        if (lat > 1000 || lng > 1000) {
+            throw new IllegalArgumentException("Coodrdinates are outside the city ");
+
+        } else if (lat < 0 || lng < 0) {
+            throw new IllegalArgumentException("Coodrdinates < 0 ");
+
+        } else {
+            request.setCoordinates(new Coordinates(lat, lng));
+        }
+
+        Map<Product, Integer> products = new HashMap<>();
+
+
+        for (int i = 4; i < query.length; i += 2) {
+            int productID = Integer.parseInt(query[i]);
+            Product product = session.get(Product.class, productID);
+            int quantity = Integer.parseInt(query[i + 1]);
+            products.put(product, quantity);
+        }
+        request.setProducts(products);
+        return request;
+    }
 }

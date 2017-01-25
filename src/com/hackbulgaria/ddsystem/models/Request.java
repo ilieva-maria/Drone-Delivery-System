@@ -1,29 +1,15 @@
 package com.hackbulgaria.ddsystem.models;
 
-import java.sql.Time;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import com.hackbulgaria.database.Products;
 
 public class Request {
     private int id;
-    private Time time;
+    private long timestamp;
     private Coordinates coordinates;
-    private List<StockItem> products;
-    private Map<Products, Integer> productsMap = new HashMap<>();
-    
-    public Request() {
-        // TODO Auto-generated constructor stub
-    }
+    private Map<Product, Integer> products = new HashMap<>();
 
-    public Request(int id, Time time, Coordinates coordinates,
-                   List<StockItem> products) {
-        this.id = id;
-        this.time = time;
-        this.coordinates = coordinates;
-        this.products = products;
+    public Request() {
     }
 
     public int getId() {
@@ -34,12 +20,12 @@ public class Request {
         this.id = id;
     }
 
-    public Time getTime() {
-        return time;
+    public long getTime() {
+        return timestamp;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
+    public void setTime(long time) {
+        this.timestamp = time;
     }
 
     public Coordinates getCoordinates() {
@@ -50,19 +36,11 @@ public class Request {
         this.coordinates = coordinates;
     }
 
-    public List<StockItem> getProducts() {
+    public Map<Product, Integer> getProducts() {
         return products;
     }
 
-    public void setProducts(List<StockItem> products) {
+    public void setProducts(Map<Product, Integer> products) {
         this.products = products;
     }
-
-	public Map<Products, Integer> getProductsMap() {
-		return productsMap;
-	}
-
-	public void setProductsMap(Map<Products, Integer> productsMap) {
-		this.productsMap = productsMap;
-	}
 }

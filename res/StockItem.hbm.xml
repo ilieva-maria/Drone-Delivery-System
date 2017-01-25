@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC 
- "-//Hibernate/Hibernate Mapping DTD//EN"
- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.hackbulgaria.ddsystem.models.StockItem" table="StockItem">
-		<meta attribute="class-description">
-			This class contains the projection detail.
-		</meta>
-		<id name="id" type="int" column="id">
-			<generator class="native" />
-		</id>
+    <class name="com.hackbulgaria.ddsystem.models.StockItem" table="StockItem">
+        <meta attribute="class-description">
+            This class contains the projection detail.
+        </meta>
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
 
-		<property name="quantity" column="quantity" type="int" />
-		<one-to-one name="product" class="com.hackbulgaria.ddsystem.models.Product"
-			cascade="save-update">
-		</one-to-one>
+        <property name="quantity" column="quantity" type="int"/>
+        <one-to-one name="product" class="com.hackbulgaria.ddsystem.models.Product"
+                    cascade="save-update">
+        </one-to-one>
+        <one-to-one name="warehouse" class="com.hackbulgaria.ddsystem.models.Warehouse"
+                    cascade="save-update"/>
 
-	</class>
+    </class>
 </hibernate-mapping>

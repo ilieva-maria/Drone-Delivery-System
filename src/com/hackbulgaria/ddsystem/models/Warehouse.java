@@ -1,13 +1,15 @@
 package com.hackbulgaria.ddsystem.models;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Warehouse {
     private Coordinates coordinates;
     private int id;
     private String name;
-    private List<StockItem> items;
+    private Set<StockItem> items;
 
     public Warehouse() {
     }
@@ -20,11 +22,11 @@ public class Warehouse {
         this.name = name;
     }
 
-    public Warehouse(int id, Coordinates coordinates, String name) {
+    public Warehouse(int id, String name, Coordinates coordinates) {
         this.setCoordinates(coordinates);
         this.setId(id);
         this.name = name;
-        this.items = new ArrayList<>();
+        this.items = new HashSet<>();
     }
 
     public Coordinates getCoordinates() {
@@ -47,7 +49,11 @@ public class Warehouse {
         items.add(stockItem);
     }
 
-    public List<StockItem> getItems() {
+    public Set<StockItem> getItems() {
         return items;
+    }
+
+    public void setItems(Set<StockItem> items) {
+        this.items = items;
     }
 }

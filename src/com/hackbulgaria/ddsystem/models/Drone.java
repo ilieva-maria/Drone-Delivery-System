@@ -1,31 +1,33 @@
 package com.hackbulgaria.ddsystem.models;
 
 import java.sql.Time;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Drone {
     private int id;
     private int batteryUnits;
     private int weightUnits;
-    private double chargingRate;
-    private Time lastUpdated;
-    private int MAX_BT = 2_000;
+    private float chargingRate;
+    private Time readyToDeliver;
+    public static int MAX_BT = 2_000;
 
     public Drone() {
     }
 
-    public Time getLastUpdated() {
-        return lastUpdated;
+    public Time getReadyToDeliver() {
+        return readyToDeliver;
     }
 
-    public void setLastUpdated(Time lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    public void setReadyToDeliver(Time readyToDeliver) {
+        this.readyToDeliver = readyToDeliver;
     }
 
-    public Drone(int batteryUnits, int weightUnits, int chargingRate, Time lastUpdated) {
+    public Drone(int batteryUnits, int weightUnits, int chargingRate, Time readyToDeliver) {
         this.batteryUnits = batteryUnits;
         this.weightUnits = weightUnits;
         this.chargingRate = chargingRate;
-        this.lastUpdated = lastUpdated;
+        this.readyToDeliver = readyToDeliver;
     }
 
     public int getId() {
@@ -56,40 +58,31 @@ public class Drone {
         return chargingRate;
     }
 
-    public void setChargingRate(double chargingRate) {
+    public void setChargingRate(float chargingRate) {
         this.chargingRate = chargingRate;
     }
 
-    public boolean canTravel(double distance) {
-        //Assume our drones use 1
-        //Battery Unit per 1 Distance unit
-        return batteryUnits > distance;
-    }
 
     //ToDo Figure out how these will work with Hibernate
-    public void makeDelivery(double distance, Time time) {
+    public void makeDelivery(double distance, long time) {
         batteryUnits -= distance;
-        lastUpdated = time;
-    }
 
-    public void updateBattery(Time time) {
-        if (lastUpdated == null) {
-            batteryUnits = MAX_BT;
-            return;
-        }
-        if (!lastUpdated.before(time)) {
-            long diff = lastUpdated.getTime() - time.getTime();
-            long diffMinutes = diff / (60 * 1000) % 60;
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date(time));
 
-            batteryUnits += chargingRate * diffMinutes;
-        }
+        c.add(Calendar.MINUTE, (int) distance);
+        c.add(Calendar.MINUTE, (int) ((MAX_BT - batteryUnits) * chargingRate));
+        readyToDeliver = new Time(c.getTime().getTime());
     }
 
     @Override
     public String toString() {
         return "Drone{" +
-                "batteryUnits=" + batteryUnits +
-                ", lastUpdated=" + lastUpdated +
+                "id=" + id +
+                ", batteryUnits=" + batteryUnits +
+                ", weightUnits=" + weightUnits +
+                ", chargingRate=" + chargingRate +
+                ", readyToDeliver=" + readyToDeliver +
                 '}';
     }
 }

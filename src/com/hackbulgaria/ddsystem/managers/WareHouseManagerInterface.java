@@ -12,5 +12,5 @@ public interface WareHouseManagerInterface {
     Warehouse getWarehouse();
 
     //ToDo Update products when a delivery is made
-    public void makeDelivery();
+    public void makeDelivery(ProductResults productResults);
 }

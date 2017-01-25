@@ -4,7 +4,7 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.hackbulgaria.ddsystem.models.Product" table="Products">
+	<class name="com.hackbulgaria.ddsystem.models.Product" table="Product">
 		<meta attribute="class-description">
 			This class contains the projection detail.
 		</meta>
@@ -15,6 +15,6 @@
 			cascade="save-update">
 		</one-to-one>
 		<property name="name" column="name" type="string" />
-		<property name="weight" column="weightUnits" type="double" />
+		<property name="weight" column="weightUnits" type="float" />
 	</class>
 </hibernate-mapping>

@@ -6,6 +6,7 @@ import com.hackbulgaria.ddsystem.models.Request;
 import com.hackbulgaria.ddsystem.results.DroneResults;
 import com.hackbulgaria.ddsystem.results.ProductResults;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +17,9 @@ public class RequestManager implements RequestManagerInterface {
                                    DroneManagerInterface droneManager, Request request) {
 
 
-        droneManager.updateDrones(request.getTime());
-
+        long requestTime = request.getTime();
         ProductResults productResults = warehouseManager.checkProducts(request);
-        DroneResults droneResults = droneManager.checkDrones(productResults,request.getCoordinates());
+        DroneResults droneResults = droneManager.checkDrones(productResults,request.getCoordinates(),requestTime);
 
         if (droneResults == null) {
             return false;
@@ -39,7 +39,10 @@ public class RequestManager implements RequestManagerInterface {
         //Update batteries
         double distance = Coordinates.distance(productResults.getWareHouse(),
                 request.getCoordinates());
-        droneManager.makeDelivery(assignedDrones, distance, request.getTime());
+        droneManager.makeDelivery(assignedDrones, distance, requestTime);
+
+        //Update stocks
+        warehouseManager.makeDelivery(productResults);
 
         return true;
     }

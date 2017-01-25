@@ -4,37 +4,20 @@ public class StockItem {
     private int id;
     private int quantity;
     private Product product;
+    private Warehouse warehouse;
 
     public StockItem() {
     }
 
-    public StockItem(int id,int quantity, Product product) {
+    public StockItem(int id, int quantity, Product product) {
         super();
         this.id = id;
         this.quantity = quantity;
         this.product = product;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + id;
-        return result;
-    }
+    public StockItem(Product key, Integer value) {
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        StockItem other = (StockItem) obj;
-        if (id != other.id)
-            return false;
-        return true;
     }
 
     public int getId() {
@@ -64,5 +47,28 @@ public class StockItem {
     @Override
     public String toString() {
         return String.format("#%d | %s | %d pcs", id, product.toString(), quantity);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        StockItem stockItem = (StockItem) o;
+
+        return id == stockItem.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
     }
 }
