@@ -1,0 +1,218 @@
+Jan 26, 2017 8:04:22 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialize
+Jan 26, 2017 8:04:27 PM com.hackbulgaria.ddsystem.Main main
+INFO: Request{id=4, timestamp=1485453867871, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 8:10:29 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 8:10:35 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: There are no set of drones that can deliver the products.
+Jan 26, 2017 8:12:17 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 8:12:23 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485454342918, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 8:12:23 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: There are no set of drones that can deliver the products.
+Jan 26, 2017 9:17:53 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:17:59 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485458278933, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:17:59 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: There are no set of drones that can deliver the products.
+Jan 26, 2017 9:21:44 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:21:50 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485458472, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:21:50 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:38}, Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:38}]
+Jan 26, 2017 9:21:50 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:21:50 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 480 pcs, #3 | id:3, name:keyboard, weight:0.5  | 270 pcs]
+Jan 26, 2017 9:21:50 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA:java.util.GregorianCalendar[time=1491218472,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Europe/Sofia",offset=7200000,dstSavings=3600000,useDaylight=true,transitions=125,lastRule=java.util.SimpleTimeZone[id=Europe/Sofia,offset=7200000,dstSavings=3600000,useDaylight=true,startYear=0,startMode=2,startMonth=2,startDay=-1,startDayOfWeek=1,startTime=3600000,startTimeMode=2,endMode=2,endMonth=9,endDay=-1,endDayOfWeek=1,endTime=3600000,endTimeMode=2]],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=1970,MONTH=0,WEEK_OF_YEAR=4,WEEK_OF_MONTH=4,DAY_OF_MONTH=18,DAY_OF_YEAR=18,DAY_OF_WEEK=1,DAY_OF_WEEK_IN_MONTH=3,AM_PM=0,HOUR=8,HOUR_OF_DAY=8,MINUTE=13,SECOND=38,MILLISECOND=472,ZONE_OFFSET=7200000,DST_OFFSET=0]
+Jan 26, 2017 9:23:52 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:23:58 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=-600046, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:23:58 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: There are no set of drones that can deliver the products.
+Jan 26, 2017 9:26:00 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:26:06 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=-599918, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:26:06 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: There are no set of drones that can deliver the products.
+Jan 26, 2017 9:26:43 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:26:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485458809, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:26:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:38}, Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:38}]
+Jan 26, 2017 9:26:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:26:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 480 pcs, #3 | id:3, name:keyboard, weight:0.5  | 270 pcs]
+Jan 26, 2017 9:26:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA:Sun Jan 18 08:13:38 EET 1970
+Jan 26, 2017 9:30:42 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:30:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485459048, coordinates=(420.000000,369.000000), products={id:3, name:keyboard, weight:0.5 =20, id:1, name:laptop, weight:2.5 =5}}
+Jan 26, 2017 9:32:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:39}, Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:39}]
+Jan 26, 2017 9:32:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:32:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#3 | id:3, name:keyboard, weight:0.5  | 270 pcs, #1 | id:1, name:laptop, weight:2.5  | 480 pcs]
+Jan 26, 2017 9:32:49 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Sun Jan 18 08:13:39 EET 1970
+Jan 26, 2017 9:33:56 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:34:02 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485459242, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:34:02 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:39}, Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:39}]
+Jan 26, 2017 9:34:02 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:34:02 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 480 pcs, #3 | id:3, name:keyboard, weight:0.5  | 270 pcs]
+Jan 26, 2017 9:34:02 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Sun Jan 18 08:13:39 EET 1970
+Jan 26, 2017 9:34:19 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:34:25 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485459265, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:34:25 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:39}, Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:39}]
+Jan 26, 2017 9:34:25 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:34:25 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 480 pcs, #3 | id:3, name:keyboard, weight:0.5  | 270 pcs]
+Jan 26, 2017 9:34:25 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Thu Jan 26 23:10:25 EET 2017
+Jan 26, 2017 9:37:30 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:37:35 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485459455, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:37:36 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:39}, Drone{id=1, batteryUnits=1280, weightUnits=500, chargingRate=5.0, readyToDeliver=21:25:39}]
+Jan 26, 2017 9:37:36 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:37:36 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 480 pcs, #3 | id:3, name:keyboard, weight:0.5  | 270 pcs]
+Jan 26, 2017 9:37:36 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Thu Jan 26 23:13:35 EET 2017
+Jan 26, 2017 9:40:20 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:40:25 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485459625, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:40:26 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=992, weightUnits=500, chargingRate=5.0, readyToDeliver=12:28:25}, Drone{id=1, batteryUnits=992, weightUnits=500, chargingRate=5.0, readyToDeliver=12:28:25}]
+Jan 26, 2017 9:40:26 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:40:26 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 475 pcs, #3 | id:3, name:keyboard, weight:0.5  | 250 pcs]
+Jan 26, 2017 9:40:26 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Thu Jan 26 23:16:25 EET 2017
+Jan 26, 2017 9:46:32 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:46:39 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485459998, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:46:39 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=704, weightUnits=500, chargingRate=5.0, readyToDeliver=12:34:38}, Drone{id=1, batteryUnits=704, weightUnits=500, chargingRate=5.0, readyToDeliver=12:34:38}]
+Jan 26, 2017 9:46:39 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:46:39 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 470 pcs, #3 | id:3, name:keyboard, weight:0.5  | 230 pcs]
+Jan 26, 2017 9:46:39 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Thu Jan 26 23:22:38 EET 2017
+Jan 26, 2017 9:51:37 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:51:43 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485460302, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:51:43 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=416, weightUnits=500, chargingRate=5.0, readyToDeliver=05:55:42}, Drone{id=1, batteryUnits=416, weightUnits=500, chargingRate=5.0, readyToDeliver=05:55:42}]
+Jan 26, 2017 9:51:43 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:51:43 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 465 pcs, #3 | id:3, name:keyboard, weight:0.5  | 210 pcs]
+Jan 26, 2017 9:51:43 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Thu Jan 26 23:27:42 EET 2017
+Jan 26, 2017 9:52:13 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:52:19 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485460339, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:52:19 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=128, weightUnits=500, chargingRate=5.0, readyToDeliver=06:54:19}, Drone{id=1, batteryUnits=128, weightUnits=500, chargingRate=5.0, readyToDeliver=06:54:19}]
+Jan 26, 2017 9:52:19 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:52:19 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 460 pcs, #3 | id:3, name:keyboard, weight:0.5  | 190 pcs]
+Jan 26, 2017 9:52:19 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Thu Jan 26 23:28:19 EET 2017
+Jan 26, 2017 9:53:24 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 26, 2017 9:53:30 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485460410, coordinates=(420.000000,369.000000), products={id:1, name:laptop, weight:2.5 =5, id:3, name:keyboard, weight:0.5 =20}}
+Jan 26, 2017 9:53:30 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=-16, weightUnits=500, chargingRate=5.0, readyToDeliver=07:50:30}]
+Jan 26, 2017 9:53:30 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:22.5
+Jan 26, 2017 9:53:30 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 455 pcs, #3 | id:3, name:keyboard, weight:0.5  | 170 pcs]
+Jan 26, 2017 9:53:30 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Thu Jan 26 23:55:30 EET 2017
+Jan 27, 2017 1:45:22 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 27, 2017 1:47:17 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 27, 2017 1:47:38 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485517594, coordinates=(420.000000,666.000000), products={id:1, name:laptop, weight:2.5 =5}}
+Jan 27, 2017 1:47:59 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=1, batteryUnits=1305, weightUnits=500, chargingRate=5.0, readyToDeliver=03:50:34}]
+Jan 27, 2017 1:47:59 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:12.5
+Jan 27, 2017 1:47:59 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#1 | id:1, name:laptop, weight:2.5  | 450 pcs]
+Jan 27, 2017 1:47:59 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Fri Jan 27 19:43:34 EET 2017
+Jan 27, 2017 1:47:59 PM com.hackbulgaria.ddsystem.Main main
+INFO: Request sent successfully.
+Jan 27, 2017 1:52:30 PM com.hackbulgaria.ddsystem.Main main
+INFO: Initialized system
+Jan 27, 2017 1:52:41 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=4, timestamp=1485517594, coordinates=(43.000000,43.000000), products={id:1, name:laptop, weight:2.5 =5}}
+Jan 27, 2017 1:52:41 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: There are no set of drones that can deliver the products.
+Jan 27, 2017 1:52:41 PM com.hackbulgaria.ddsystem.Main main
+INFO: Failed executing request.
+Jan 27, 2017 1:53:26 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=5, timestamp=1485517594, coordinates=(44.000000,49.000000), products={id:1, name:laptop, weight:2.5 =5}}
+Jan 27, 2017 1:53:26 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: There are no set of drones that can deliver the products.
+Jan 27, 2017 1:53:26 PM com.hackbulgaria.ddsystem.Main main
+INFO: Failed executing request.
+Jan 27, 2017 1:53:28 PM com.hackbulgaria.ddsystem.Main main
+INFO: Shutting down system.
+Jan 27, 2017 2:07:21 PM com.hackbulgaria.ddsystem.RequestHandler main
+INFO: Initialized system
+Jan 27, 2017 2:16:44 PM com.hackbulgaria.ddsystem.RequestHandler main
+INFO: Initialized system
+Jan 27, 2017 2:17:08 PM com.hackbulgaria.ddsystem.RequestHandler main
+INFO: No product with this ID exists
+Jan 27, 2017 2:23:49 PM com.hackbulgaria.ddsystem.RequestHandler main
+INFO: Initialized system
+Jan 27, 2017 2:24:33 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Request received: Request{id=6, timestamp=1485519838, coordinates=(66,68), products={id:4, name:mouse, weight:0.2 =1, id:2, name:pc, weight:3.0 =3}}
+Jan 27, 2017 2:24:33 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Drones sent: [Drone{id=2, batteryUnits=1995, weightUnits=10, chargingRate=10.0, readyToDeliver=14:36:58}]
+Jan 27, 2017 2:24:33 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Total weight:9.2
+Jan 27, 2017 2:24:33 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: Products sent: [#4 | id:4, name:mouse, weight:0.2  | 99 pcs, #2 | id:2, name:pc, weight:3.0  | 297 pcs]
+Jan 27, 2017 2:24:33 PM com.hackbulgaria.ddsystem.managers.RequestManager canMakeDelivery
+INFO: ETA: Fri Jan 27 14:33:58 EET 2017
+Jan 27, 2017 2:24:33 PM com.hackbulgaria.ddsystem.RequestHandler main
+INFO: Request sent successfully.
+Jan 27, 2017 2:25:36 PM com.hackbulgaria.ddsystem.RequestHandler main
+INFO: Shutting down system.

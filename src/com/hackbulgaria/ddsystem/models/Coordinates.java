@@ -1,7 +1,5 @@
 package com.hackbulgaria.ddsystem.models;
 
-import com.hackbulgaria.ddsystem.models.Warehouse;
-
 public class Coordinates {
     private int id;
     private double lat;
@@ -9,13 +7,17 @@ public class Coordinates {
     private Warehouse warehouse;
 
     public Coordinates() {
-        // TODO Auto-generated constructor stub
     }
 
     public Coordinates(double lat, double lng) {
         super();
         this.lat = lat;
         this.lng = lng;
+    }
+
+    public static double distance(Coordinates a, Coordinates b) {
+        return 2 * Math.sqrt((a.lat - b.lng) * (a.lat - b.lng) +
+                (a.lat - b.lng) * (a.lat - b.lng));
     }
 
     public double getlat() {
@@ -34,29 +36,20 @@ public class Coordinates {
         this.lng = lng;
     }
 
-
     public int getId() {
         return id;
     }
-
 
     public void setId(int id) {
         this.id = id;
     }
 
-
     public Warehouse getWarehouse() {
         return warehouse;
     }
 
-
     public void setWarehouse(Warehouse warehouse) {
         this.warehouse = warehouse;
-    }
-
-    public static double distance(Coordinates a, Coordinates b) {
-        return 2 * Math.sqrt((a.lat - b.lng) * (a.lat - b.lng) +
-                (a.lat - b.lng) * (a.lat - b.lng));
     }
 
     @Override
@@ -94,5 +87,10 @@ public class Coordinates {
 
     public void setLng(double lng) {
         this.lng = lng;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("(%d,%d)", (int) lat, (int) lng);
     }
 }

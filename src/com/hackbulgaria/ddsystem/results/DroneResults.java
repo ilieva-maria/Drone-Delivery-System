@@ -2,6 +2,7 @@ package com.hackbulgaria.ddsystem.results;
 
 import com.hackbulgaria.ddsystem.models.Drone;
 
+import java.sql.Time;
 import java.util.List;
 
 /**
@@ -9,6 +10,7 @@ import java.util.List;
  */
 public class DroneResults {
     private List<Drone> availableDrones;
+    private Time arrivalTime;
 
     public DroneResults(List<Drone> assignedDrones) {
         this.availableDrones = assignedDrones;
@@ -20,5 +22,13 @@ public class DroneResults {
 
     public void setAvailableDrones(List<Drone> availableDrones) {
         this.availableDrones = availableDrones;
+    }
+
+    public Time getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(Time arrivalTime) {
+        this.arrivalTime = arrivalTime;
     }
 }

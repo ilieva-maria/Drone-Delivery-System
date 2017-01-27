@@ -3,13 +3,13 @@ package com.hackbulgaria.ddsystem.models;
 public class Product {
     private int id;
     private String name;
-    private float weight;
+    private double weight;
     private StockItem item;
 
     public Product() {
     }
 
-    public Product(int id, String name, float weight) {
+    public Product(int id, String name, double weight) {
         this.id = id;
         this.name = name;
         this.weight = weight;
@@ -35,7 +35,7 @@ public class Product {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

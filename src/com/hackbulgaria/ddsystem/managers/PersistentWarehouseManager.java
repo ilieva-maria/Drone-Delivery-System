@@ -6,32 +6,27 @@ import com.hackbulgaria.ddsystem.models.StockItem;
 import com.hackbulgaria.ddsystem.models.Warehouse;
 import com.hackbulgaria.ddsystem.results.ProductResults;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class WareHouseManager implements WareHouseManagerInterface {
+public class PersistentWarehouseManager implements WarehouseManager {
     private Session session;
     private Warehouse warehouse;
 
 
     @SuppressWarnings("unchecked")
-    public WareHouseManager(Session session) {
+    public PersistentWarehouseManager(Session session) {
         this.session = session;
         List<Warehouse> list = session.createQuery("FROM Warehouse").getResultList();
         this.warehouse = list.get(0);
     }
 
+    @SuppressWarnings("unchecked")
     public void showProductsFromTable() {
-        List<?> products = session.createQuery("FROM Product").getResultList();
-        for (Iterator<?> iterator = products.iterator(); iterator.hasNext(); ) {
-            Product product = (Product) iterator.next();
-            System.out.print("ID: " + product.getId());
-            System.out.print("  Name: " + product.getName());
-            System.out.println();
-
-        }
+        session.createQuery("FROM Product")
+                .getResultList().forEach(System.out::println);
     }
 
     public void showProducts() {
@@ -45,8 +40,18 @@ public class WareHouseManager implements WareHouseManagerInterface {
 
     @Override
     public void makeDelivery(ProductResults productResults) {
-        for (StockItem item : productResults.getPurchased()){
-            session.update(item);
+        for (StockItem item : productResults.getPurchased()) {
+            Transaction tx = null;
+            try {
+                tx = session.beginTransaction();
+                session.update(item);
+                tx.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (tx != null) {
+                    tx.rollback();
+                }
+            }
         }
     }
 
@@ -78,7 +83,7 @@ public class WareHouseManager implements WareHouseManagerInterface {
             results.addWeight(item.getProduct().getWeight() * q);
 
             //Adding the stockitem with new quantity to update later
-            item.setQuantity(item.getQuantity()-q);
+            item.setQuantity(item.getQuantity() - q);
             results.addPurchasedItem(item);
         }
 

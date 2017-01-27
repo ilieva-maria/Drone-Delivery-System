@@ -5,28 +5,28 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Drone {
+    public static int MAX_BT = 2_000;
     private int id;
     private int batteryUnits;
     private int weightUnits;
-    private float chargingRate;
-    private Time readyToDeliver;
-    public static int MAX_BT = 2_000;
+    private double chargingRate;
+    private Date readyToDeliver;
 
     public Drone() {
     }
 
-    public Time getReadyToDeliver() {
-        return readyToDeliver;
-    }
-
-    public void setReadyToDeliver(Time readyToDeliver) {
-        this.readyToDeliver = readyToDeliver;
-    }
-
-    public Drone(int batteryUnits, int weightUnits, int chargingRate, Time readyToDeliver) {
+    public Drone(int batteryUnits, int weightUnits, int chargingRate, Date readyToDeliver) {
         this.batteryUnits = batteryUnits;
         this.weightUnits = weightUnits;
         this.chargingRate = chargingRate;
+        this.readyToDeliver = readyToDeliver;
+    }
+
+    public Date getReadyToDeliver() {
+        return readyToDeliver;
+    }
+
+    public void setReadyToDeliver(Date readyToDeliver) {
         this.readyToDeliver = readyToDeliver;
     }
 
@@ -58,20 +58,20 @@ public class Drone {
         return chargingRate;
     }
 
-    public void setChargingRate(float chargingRate) {
+    public void setChargingRate(double chargingRate) {
         this.chargingRate = chargingRate;
     }
 
 
-    //ToDo Figure out how these will work with Hibernate
-    public void makeDelivery(double distance, long time) {
-        batteryUnits -= distance;
+    public void makeDelivery(double distance, long time, int loadTime) {
+        batteryUnits -= (int) distance;
 
         Calendar c = Calendar.getInstance();
-        c.setTime(new Date(time));
+        c.setTime(new Date(time * 1000));
 
+        c.add(Calendar.MINUTE, loadTime);
         c.add(Calendar.MINUTE, (int) distance);
-        c.add(Calendar.MINUTE, (int) ((MAX_BT - batteryUnits) * chargingRate));
+        c.add(Calendar.MINUTE, (int) ((MAX_BT - batteryUnits) / chargingRate));
         readyToDeliver = new Time(c.getTime().getTime());
     }
 

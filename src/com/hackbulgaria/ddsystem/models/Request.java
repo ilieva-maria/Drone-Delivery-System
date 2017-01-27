@@ -43,4 +43,14 @@ public class Request {
     public void setProducts(Map<Product, Integer> products) {
         this.products = products;
     }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "id=" + id +
+                ", timestamp=" + timestamp +
+                ", coordinates=" + coordinates +
+                ", products=" + products +
+                '}';
+    }
 }

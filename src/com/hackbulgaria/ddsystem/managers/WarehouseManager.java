@@ -4,7 +4,7 @@ import com.hackbulgaria.ddsystem.models.Request;
 import com.hackbulgaria.ddsystem.models.Warehouse;
 import com.hackbulgaria.ddsystem.results.ProductResults;
 
-public interface WareHouseManagerInterface {
+public interface WarehouseManager {
     public ProductResults checkProducts(Request request);
 
     public void showProducts();

@@ -12,10 +12,11 @@
             <generator class="native"/>
         </id>
 
+
         <property name="batteryUnits" column="batteryUnits" type="int"/>
         <property name="weightUnits" column="weightUnits" type="int"/>
-        <property name="chargingRate" column="chargingRate" type="float"/>
-        <property name="readyToDeliver" column="readyToDeliver" type="time"/>
+        <property name="chargingRate" column="chargingRate" type="double"/>
+        <property name="readyToDeliver" column="readyToDeliver" type="timestamp"/>
 
     </class>
 </hibernate-mapping>

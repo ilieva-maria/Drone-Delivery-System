@@ -5,9 +5,6 @@
 
 <hibernate-mapping>
 	<class name="com.hackbulgaria.ddsystem.models.Coordinates" table="Coordinates">
-		<meta attribute="class-description">
-			This class contains the projection detail.
-		</meta>
 		<id name="id" type="int" column="id">
 			<generator class="native" />
 		</id>
@@ -17,7 +14,5 @@
 		<one-to-one name="warehouse" class="com.hackbulgaria.ddsystem.models.Warehouse"
 			cascade="save-update">
 		</one-to-one>
-
-
 	</class>
 </hibernate-mapping>
