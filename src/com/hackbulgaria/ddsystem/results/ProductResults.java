@@ -7,30 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductResults {
-    private boolean available;
     private float totalWeight;
     private Coordinates wareHouse;
     private List<StockItem> purchased;
 
-    public ProductResults(boolean available, float totalWeight, Coordinates wareHouse) {
-        this.available = available;
+    public ProductResults(float totalWeight, Coordinates wareHouse) {
         this.totalWeight = totalWeight;
         this.wareHouse = wareHouse;
         this.purchased = new ArrayList<>();
     }
 
     public ProductResults() {
-        available = true;
         totalWeight = 0;
         this.purchased = new ArrayList<>();
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
     }
 
     public float getTotalWeight() {

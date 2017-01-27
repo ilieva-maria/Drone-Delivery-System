@@ -16,41 +16,54 @@ public class RequestHandler {
     public static final String QUIT = "quit";
     public static final String DELIVERY = "delivery";
     public static final String SUPPLY = "supply";
-
-    public static void main(String[] args) throws IOException {
-/*        if (args.length != 3) {
-            throw new IllegalStateException("Invalid arguments. Format is <dbname> <user> <password>");
-        }*/
-
-        Logger logger = Logger.getLogger("MyLog");
-        FileHandler fh;
-
-        fh = new FileHandler("droneDelivery.log", true);
+    
+    private Session session;
+    private static Logger logger;
+    private DroneManager droneManager;
+    private WarehouseManager warehouseManager;
+    private RequestManager requestManager;
+    
+    public RequestHandler() throws IOException{
+    	logger = Logger.getLogger("MyLog");
+        FileHandler fh = new FileHandler("droneDelivery.log", true);
         logger.addHandler(fh);
         SimpleFormatter formatter = new SimpleFormatter();
         fh.setFormatter(formatter);
-
-        Session session = initSession();
+        
+        
         logger.info("Initialized system");
+    	this.session = initSession();
+   	  	this.droneManager = new PersistentDroneManager(session);
+        this.warehouseManager = new PersistentWarehouseManager(session);
+        this.requestManager = new RequestManager(logger, warehouseManager, droneManager);
+        
+    }
+    
+    public void handle() throws IOException {
+    	
 
+		RequestParser parser = new PersistentParser(session, logger);
 
-        RequestParser cli = new PersistentParser(session);
-
-        DroneManager dmanager = new PersistentDroneManager(session);
-        WarehouseManager wmanager = new PersistentWarehouseManager(session);
-        RequestManager requestManager = new RequestManager(logger, wmanager, dmanager);
-
-        Request r;
-        String s;
-        Scanner scanner = new Scanner(System.in);
-        while (!(s = scanner.nextLine()).equals(QUIT)) {
-            r = cli.parse(s);
-
-            logger.info(requestManager.canMakeDelivery(r) ?
-                    "Request sent successfully." : "Failed executing request.");
-        }
-        session.close();
-        logger.info("Shutting down system.");
+		Request request;
+		String command;
+		Scanner scanner = new Scanner(System.in);
+		try {
+			while (!(command = scanner.nextLine()).equals(QUIT)) {
+				request = parser.parse(command);
+				if (request.getRequestType().equals(DELIVERY)) {
+					requestManager.makeDelivery(request);
+					
+				} else if (request.getRequestType().equals(SUPPLY)) {
+					warehouseManager.makeSupply(request);
+				} else {
+					logger.info("NON existing request type.");
+				}
+			}
+		} finally {
+			session.close();
+			logger.info("Shutting down system.");
+			scanner.close();
+		}
     }
 
     private static Session initSession() {
@@ -68,4 +81,5 @@ public class RequestHandler {
         }
         return factory.openSession();
     }
+   
 }

@@ -216,3 +216,5 @@ Jan 27, 2017 2:24:33 PM com.hackbulgaria.ddsystem.RequestHandler main
 INFO: Request sent successfully.
 Jan 27, 2017 2:25:36 PM com.hackbulgaria.ddsystem.RequestHandler main
 INFO: Shutting down system.
+Jan 27, 2017 6:41:14 PM com.hackbulgaria.ddsystem.RequestHandler main
+INFO: Initialized system

@@ -1,0 +1,12 @@
+Jan 27, 2017 8:41:34 PM com.hackbulgaria.ddsystem.RequestHandler main
+INFO: Initialized system
+Jan 27, 2017 8:41:37 PM com.hackbulgaria.ddsystem.PersistentParser parse
+INFO: Unable to parse the request. Not enough arguments.
+Jan 27, 2017 8:41:45 PM com.hackbulgaria.ddsystem.RequestHandler main
+INFO: Initialized system
+Jan 27, 2017 8:42:05 PM com.hackbulgaria.ddsystem.PersistentParser parse
+INFO: The requested product is not in stock. The product ID is : 1
+Jan 27, 2017 8:42:05 PM com.hackbulgaria.ddsystem.PersistentParser parse
+INFO: The requested product is not in stock. The product ID is : 2
+Jan 27, 2017 8:42:41 PM com.hackbulgaria.ddsystem.PersistentParser parse
+INFO: Unable to parse the request. Not enough arguments.

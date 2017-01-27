@@ -8,10 +8,11 @@ import com.hackbulgaria.ddsystem.results.ProductResults;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersistentDroneManager implements DroneManager {
-    private static String TABLE_NAME = "Drones";
+   
     private Session session;
 
     public PersistentDroneManager() {
@@ -30,11 +31,6 @@ public class PersistentDroneManager implements DroneManager {
     @SuppressWarnings("unchecked")
     @Override
     public DroneResults checkDrones(ProductResults pResults, Coordinates dest, long time) {
-        if (!pResults.isAvailable()) {
-            //The product is not available - no point in assigning drones
-            return null;
-        }
-
         //Calculate the distance of the delivery
         double distance = Coordinates.distance(dest, pResults.getWareHouse());
 
@@ -49,8 +45,10 @@ public class PersistentDroneManager implements DroneManager {
             //Our drones cannot carry the weight
             return null;
         }
+        
+        List<Drone> assignedDrones = assignDrones(available,pResults.getTotalWeight());
 
-        return new DroneResults(available);
+        return new DroneResults(assignedDrones);
     }
 
 
@@ -73,5 +71,19 @@ public class PersistentDroneManager implements DroneManager {
                 }
             }
         });
+    }
+    
+    private List<Drone> assignDrones(List<Drone> available, float totalWeight) {
+        List<Drone> assignedDrones = new ArrayList<>();
+        int assignedWeight = 0;
+
+        //Assign only drones that'll do the job
+        for (int i = 0; assignedWeight <totalWeight; i++) {
+            Drone assigned = available.get(i);
+            assignedDrones.add(assigned);
+
+            assignedWeight += assigned.getWeightUnits();
+        }
+        return assignedDrones;
     }
 }

@@ -1,0 +1,4 @@
+Jan 27, 2017 10:13:13 PM com.hackbulgaria.ddsystem.RequestHandler <init>
+INFO: Initialized system
+Jan 27, 2017 10:13:23 PM com.hackbulgaria.ddsystem.RequestHandler handle
+INFO: Shutting down system.

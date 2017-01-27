@@ -18,7 +18,7 @@
             root
         </property>
         <property name="hibernate.connection.password">
-
+        mariana59
         </property>
 
         <!-- List of XML mapping files -->

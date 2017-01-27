@@ -21,14 +21,14 @@ public class RequestManager implements RequestManagerInterface {
     }
 
     @Override
-    public boolean canMakeDelivery(Request request) {
+    public boolean makeDelivery(Request request) {
 
         logger.info("Request received: " + request.toString());
 
         long requestTime = request.getTime();
         ProductResults productResults = warehouseManager.checkProducts(request);
 
-        if (!productResults.isAvailable()) {
+        if (productResults != null) {
             logger.info("Requested products are not available.");
             return false;
         }
@@ -42,7 +42,7 @@ public class RequestManager implements RequestManagerInterface {
         }
 
 
-        List<Drone> assignedDrones = assignDrones(productResults, droneResults);
+        List<Drone> assignedDrones = droneResults.getAvailable();
 
         int totalItemCount = request.getProducts()
                 .entrySet()
@@ -67,19 +67,7 @@ public class RequestManager implements RequestManagerInterface {
         return true;
     }
 
-    private List<Drone> assignDrones(ProductResults productResults, DroneResults droneResults) {
-        List<Drone> assignedDrones = new ArrayList<>();
-        int assignedWeight = 0;
-
-        //Assign only drones that'll do the job
-        for (int i = 0; assignedWeight < productResults.getTotalWeight(); i++) {
-            Drone assigned = droneResults.getAvailable().get(i);
-            assignedDrones.add(assigned);
-
-            assignedWeight += assigned.getWeightUnits();
-        }
-        return assignedDrones;
-    }
+    
 
     private String calculateETA(long time, double distance, int loadTime) {
         Calendar calendar = Calendar.getInstance();
@@ -89,5 +77,11 @@ public class RequestManager implements RequestManagerInterface {
         calendar.add(Calendar.MINUTE, loadTime);
         return calendar.getTime().toString();
     }
+
+	@Override
+	public boolean makeSupply(Request request) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

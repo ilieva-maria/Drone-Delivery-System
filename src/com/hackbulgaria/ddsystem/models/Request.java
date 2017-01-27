@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Request {
     private int id;
+    private String requestType;
     private long timestamp;
     private Coordinates coordinates;
     private Map<Product, Integer> products = new HashMap<>();
@@ -53,4 +54,12 @@ public class Request {
                 ", products=" + products +
                 '}';
     }
+
+	public String getRequestType() {
+		return requestType;
+	}
+
+	public void setRequestType(String requestType) {
+		this.requestType = requestType;
+	}
 }

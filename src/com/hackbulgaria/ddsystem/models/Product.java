@@ -9,8 +9,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, double weight) {
-        this.id = id;
+    public Product(String name, double weight) {
         this.name = name;
         this.weight = weight;
     }

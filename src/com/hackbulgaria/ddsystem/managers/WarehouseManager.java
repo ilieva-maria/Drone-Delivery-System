@@ -13,4 +13,5 @@ public interface WarehouseManager {
 
     //ToDo Update products when a delivery is made
     public void makeDelivery(ProductResults productResults);
+    public void makeSupply(Request request);
 }
